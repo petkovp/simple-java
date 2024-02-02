@@ -10,7 +10,7 @@ pipeline {
     }
     stage('SonarQube Check') {
       steps {
-        withSonarQubeEnv(installationName: 'SonarQube') {
+        withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'sonarqube') {
           sh '''
           mvn package sonar:sonar
           '''
